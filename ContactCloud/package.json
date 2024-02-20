@@ -4,7 +4,8 @@
   "description": "Contacts saver fullstack app",
   "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js"
+    "install-server": "cd ContactCloud && npm install",
+    "start-server": "cd ContactCloud && node app.js",
   },
   "author": "Pratik Singh",
   "license": "ISC",
