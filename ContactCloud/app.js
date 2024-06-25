@@ -17,16 +17,15 @@ app.use(notFound); // using this middleware when route not found
 // Defining PORT
 const port = process.env.PORT || 3000;
 
-// mongoose connection script
-mongoose
-  .connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => console.log("Mongo Connected"))
-  .catch((err) => console.log(err));
+mongoose.connect(
+  process.env.MONGODB_URI || "",
+  {},
+);
 
+mongoose.connection.on("open", () => {
+  console.log(`DB connected !`);
+});
 
 app.listen(port, () => {
-  console.log(`Server is listening on 3000`);
+  console.log(`Server running @ port ${port} !`);
 });
